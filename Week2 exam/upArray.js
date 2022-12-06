@@ -19,3 +19,30 @@
 //[4,3,9]       [4,4,0]
 //[9]           [1,0]
 
+function upArray(arr) {
+  if (arr.length === 0) return null;
+  if (arr.some((x) => x < 0 || x > 9)) return null;
+  if (arr.length === 1 && arr[0] === 0) return [1];
+  let carry = 1;
+
+  let reversedArr = arr.reverse();
+
+  let output = reversedArr
+    .map((x) => {
+      if (carry === 0) return x;
+      x += carry;
+      if (x > 9) {
+        x = 0;
+        carry = 1;
+      } else {
+        carry = 0;
+      }
+      return x;
+    })
+    .reverse();
+
+  if (carry === 1) output.unshift(1);
+  return output;
+}
+
+console.log(upArray([4, 2]));
