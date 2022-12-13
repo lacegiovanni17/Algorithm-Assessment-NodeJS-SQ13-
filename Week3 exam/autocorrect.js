@@ -38,6 +38,12 @@
 //"Our team is excited to finish this with your client."
 
 Solution 
+// /**
+//  * Replaces all instances of "you" and its misspellings with "your client".
+//  *
+//  * @param {string} text - The string to correct.
+//  * @returns {string} The corrected string.
+// */
 const correction = (text) => {
   let copyText = text;
   let splittedText = copyText.split(" ");
