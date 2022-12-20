@@ -31,7 +31,6 @@
 // We have [1, 2, 3, 4, 5, 6, 7, 8] -> [3, 7, 11, 15]
 //-> [21, 165] -> [186], so the answer is 186.
 
-
 // Here is a solution using a while loop in JavaScript:
 
 // Copy code
@@ -66,7 +65,6 @@
 // Copy code
 // console.log(packArray([1, 2, 3, 4, 5, 6, 7, 8])); // outputs 186
 
-
 // Solution
 
 /**
@@ -76,16 +74,16 @@
  *
  * @param {number[]} integers - The array to pack.
  * @returns {number} The lone element.
-*/
+ */
 
-const packArray = integers => {
+const packArray = (integers) => {
   let k = 0;
   while (integers.length > 1) {
     let newArr = [];
-    for (let i = 0; i < integers.length; i+=2) {
+    for (let i = 0; i < integers.length; i += 2) {
       if (k % 2 == 0) {
         newArr.push(integers[i] + integers[i + 1]);
-      }else {
+      } else {
         newArr.push(integers[i] * integers[i + 1]);
       }
     }
@@ -96,7 +94,7 @@ const packArray = integers => {
 };
 
 //Solution
-const packArray = (integers) => {
+const packArrays = (integers) => {
   if (integers.length == 1) {
     let n = integers[0];
     return n;
@@ -117,7 +115,3 @@ const packArray = (integers) => {
   }
   return 0;
 };
-
-
-
-
