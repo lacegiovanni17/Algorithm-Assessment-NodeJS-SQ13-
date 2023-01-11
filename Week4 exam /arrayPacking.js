@@ -63,3 +63,13 @@ const arrayPacking = (integers) => {
   return result;
 };
 console.log(arrayPacking([24, 85, 0]));
+
+Solution 2
+
+const arrayPacking = (integers) => {
+  let paddedBinary = integers.map((item, index) => {
+    return item.toString(2).padStart(8, "0");
+  });
+  const singleNumber = paddedBinary.reverse().join("");
+  return parseInt(singleNumber, 2);
+}
