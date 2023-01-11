@@ -46,3 +46,11 @@ function upArray(arr) {
 }
 
 console.log(upArray([4, 2]));
+
+Solution 2
+
+const upArray = arr => {
+  let arrToNumber = BigInt(arr.join(''));
+  let res = BigInt(arrToNumber + BigInt(1));
+  return Array.from(String(res), res => Number(res));
+};
