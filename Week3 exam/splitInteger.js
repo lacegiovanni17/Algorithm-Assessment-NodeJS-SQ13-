@@ -29,7 +29,8 @@
 // Divided as closely as possible into even parts with the
 //smallest parts grouped at the front of the result	20	6[3, 3, 3, 3, 4, 4]
 
-//Solution
+Solution 1
+
 function splitInteger(num, parts) {
   var result = [];
   var quotient = Math.floor(num / parts);
@@ -46,7 +47,7 @@ function splitInteger(num, parts) {
 }
 console.log(splitInteger(20, 6));
 
-//solution2
+Solution 2
 
 function splitInteger(num, parts) {
   // calculate the size of each part
@@ -63,3 +64,17 @@ function splitInteger(num, parts) {
 
   return result;
 }
+
+Solution 3
+
+const splitInteger = (num, parts) => {
+  const res = [];
+
+  while (num) {
+    res.push(Math.ceil(num / parts));
+    num -= Math.ceil(num / parts);
+    parts--;
+  }
+
+  return res.reverse();
+};
