@@ -37,7 +37,7 @@
 // "Our team is excited to finish this with you."
 //"Our team is excited to finish this with your client."
 
-Solution 
+Solution 1
 // /**
 //  * Replaces all instances of "you" and its misspellings with "your client".
 //  *
@@ -70,3 +70,7 @@ const correction = (text) => {
   return copyText;
 };
 console.log(correction("I called to talk to u."));
+
+Solution 2
+
+const autocorrect = input => input.replace(/\b(u|you+)\b/gi, "your client");
