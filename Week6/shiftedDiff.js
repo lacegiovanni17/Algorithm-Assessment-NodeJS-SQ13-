@@ -55,3 +55,17 @@ const shiftedDiff = (first, second) => {
     }
     return -1;
 };
+
+Solution 2
+
+const shiftedDiff = (first, second) => {
+  let copySecond = [...second];
+  for (let index = 0; index < copySecond.length; index++) {
+    if (first === copySecond.join("")) {
+      return index;
+    }
+    copySecond.push(copySecond.shift());
+  }
+  return -1;
+};
+
