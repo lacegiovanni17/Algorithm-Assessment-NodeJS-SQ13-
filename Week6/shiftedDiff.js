@@ -79,3 +79,9 @@ const shiftedDiff2 = (first, second) => {
   }
 };
 
+Solution 4
+
+const shiftedDiff3 = (first, second) => {
+  return first.length === second.length ? (second + second).indexOf(first) : -1;
+};
+
