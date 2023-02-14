@@ -20,6 +20,8 @@
 
 // Aim for a Linear Time solution
 
+// <img>sunset_image.png</img>
+
 // Sunset Views
 
 // Sample Input #1
