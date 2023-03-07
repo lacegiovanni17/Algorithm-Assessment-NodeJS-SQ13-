@@ -18,9 +18,31 @@
 
 //solution 1
 const binaryTreeCompare = (a, b) => {
-    if (a === null && b === null) return true;
-    if (a === null || b === null) return false;
-    return a.val === b.val && binaryTreeCompare(a.left, b.left) && binaryTreeCompare(a.right, b.right);
-}
+  if (a === null && b === null) return true;
+  if (a === null || b === null) return false;
+  return (
+    a.val === b.val &&
+    binaryTreeCompare(a.left, b.left) &&
+    binaryTreeCompare(a.right, b.right)
+  );
+};
 
 //solution 2
+const binaryTreeCompare = (a, b) => {
+  if (!a && !b) {
+    // both trees are empty
+    return true;
+  }
+  if (!a || !b) {
+    // one tree is empty, the other is not
+    return false;
+  }
+  if (a.val !== b.val) {
+    // values of current nodes are different
+    return false;
+  }
+  // recursively compare left and right subtrees
+  return (
+    binaryTreeCompare(a.left, b.left) && binaryTreeCompare(a.right, b.right)
+  );
+};
