@@ -61,7 +61,7 @@ const numberToOrdinal = (number) => {
   }
 
   return result;
-}; 
+};
 
 
 Solution 2
@@ -69,7 +69,7 @@ Solution 2
 const numberToOrdinal = number => {
   const suffixes = ['th', 'st', 'nd', 'rd'];
   const v = number % 100;
-  return number 
-    ? number + (suffixes[(v-20)%10] || suffixes[v] || suffixes[0]) 
+  return number
+    ? number + (suffixes[(v-20)%10] || suffixes[v] || suffixes[0])
     : "0";
 };
