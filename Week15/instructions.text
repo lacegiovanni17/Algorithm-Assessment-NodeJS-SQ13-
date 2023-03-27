@@ -1,0 +1,34 @@
+Task
+In this challenge, you'll create a simple currency converter application. The app will offer text input enabling data to be fetched from a mock API, https://us-east1-serverless-306422.cloudfunctions.net/exchangerates, which serves (fake) historical exchange rates. The result from the API will be displayed to the user.
+
+Functional requirements
+This section outlines the requirements which your component should adhere to in order to pass the provided tests.
+
+HTML elements
+Ensure that the CurrencyConverter component renders the following elements, which will be used by the test suite:
+
+<input class="currency-source" />: an input field for the user to enter the 3-digit source (base) currency symbol.
+<input class="currency-destination" />: an input field for the user to enter the 3-digit destination currency symbol.
+<input class="currency-date" />: an input field for the user to enter the 10-digit date for the desired conversion rate.
+<button class="find-rate">: a button which enables the user to submit a conversion rate request.
+<button class="reset-fields">: a button which enables the user to clear all of the input fields along with the result element and reset the app to its original state. No other button click should result in the fields being cleared.
+<div class="conversion-result">: an element to show the result of the request. On success, the conversion rate returned by the API will be shown, otherwise, this box will contain an error message for the user (decribed below).
+Note that these elements will be called by class name, so their type is flexible as long as they respond to click and onChange events. Please view the Enzyme test suite to determine exactly the way in which the DOM will be accessed.
+
+Input validation
+Form validation is an important part of this component. The currency-source and currency-destination input fields must only accept upper- or lowercase letters which will be automatically uppercased for rendering. Example symbols include USD (United States dollars), SEK (Swedish Krona), CHF (Swiss Franc), and so forth. If a user types anything other than an alphabetical letter, it will be ignored, as will input longer than 3 characters (if such input is received, truncate to 3 characters).
+
+The currency-date field uses the format yyyy-mm-dd (year, month, day). If a user attempts to type anything other than a digit or dash character, it will be ignored, as will input exceeding 10 characters (if such input is received, truncate to 10 characters).
+
+Should the user click the find-rate button prior to filling out all of the fields to the appropriate lengths, your conversion-result element should display the error text Please complete each field.
+
+If the input passes the above validation checks, your code can send a request to a mock exchange rate API. All further messages (results or errors) will come verbatim from the result JSON returned by the API.
+
+After sending a request to the API, if the request is unsuccessful, the response JSON string will contain an "error" key. If this key is set, set the conversion-result element to its value. A variety of errors can occur for malformed dates (such as 8000-20-20), old dates (such as 1999-01-01) or illegal symbols (such as XYZ).
+
+Otherwise, if a request to the API is successful, the "rates" key will be set on the response JSON string. In this case, set the conversion-result element to the value mapped to the "rates" key corresponding to the requested symbol.
+
+Axios, testing and the exchange rates API
+For this challenge, use axios for making requests. The test suite will use a mocked version of axios to validate your code's behavior. How the test suite does this and the definition of the mock are available to you in the project folder under __mocks__ and __tests__. Most relevantly, only the axios.get method is made available.
+
+No key is necessary to access the API. Since we're using a public API, please respect rate limits to the extent you can. In the rare event that the API is unavailable, use the sample data in the provided tests and the mocked axios object to simulate calls to the API (response JSON in the testing suite shows example URIs). Since the tests don't call the API, the challenge is completable.
